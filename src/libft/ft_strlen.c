@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 13:19:49 by ahammam           #+#    #+#             */
-/*   Updated: 2022/11/14 09:37:29 by ahammam          ###   ########.fr       */
+/*   Created: 2021/11/01 17:30:53 by hboumahd          #+#    #+#             */
+/*   Updated: 2022/11/21 08:55:06 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-#define LIBFT_H
-#include <unistd.h>
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int ft_strlen(const char *str);
-char *get_next_line(int fd);
-char *ft_add_char(char *str, char c);
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
 
-#endif
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}

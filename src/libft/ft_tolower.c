@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hboumahd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 13:19:54 by ahammam           #+#    #+#             */
-/*   Updated: 2022/11/14 09:39:25 by ahammam          ###   ########.fr       */
+/*   Created: 2021/11/03 09:47:01 by hboumahd          #+#    #+#             */
+/*   Updated: 2021/11/03 09:48:32 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int main()
+int	ft_tolower(int c)
 {
-    int fd = open("cub3d.c", O_RDONLY);
-    char *line = get_next_line(fd);
-    while ((line = get_next_line(fd)))
-    {
-        printf("----> %s", line);
-    }
+	if (c >= 65 && c <= 90)
+		c = c + 32;
+	return (c);
 }

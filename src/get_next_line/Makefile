@@ -3,35 +3,38 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+         #
+#    By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/13 13:19:52 by ahammam           #+#    #+#              #
-#    Updated: 2022/11/14 09:39:49 by ahammam          ###   ########.fr        #
+#    Created: 2022/02/15 15:50:56 by hboumahd          #+#    #+#              #
+#    Updated: 2022/02/15 16:00:38 by hboumahd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-RM = rm -rf
-SRC =	get_next_line.c ft_strlen.c
+NAME = get_next_line.a
 
-OBJECTS = $(SRC:.c=.o)
+SRC = get_next_line.c get_next_line_utils.c
 
-%.o: %.c
-	$(CC) ${CFLAGS} -c $< -o $@
-	
-all: $(NAME)
+SRCOBJ = ${SRC:.c=.o}
 
-$(NAME): $(OBJECTS) libft.h
-	ar -rcs $(NAME) $(OBJECTS)
+INCLUDE = get_next_line.h  
 
-clean:
-	$(RM) $(OBJECTS)
+CC = cc 
 
-fclean: clean
-	$(RM) $(NAME)
+FLAGS = -Wall -Wextra -Werror
 
-re: fclean all
+%.o : %.c ${INCLUDE}
+	${CC} ${FLAGS} -c $< -o $@
 
-.PHONY: all clean fclean re
+$(NAME) : ${SRCOBJ} 
+	@ar rcs ${NAME} ${SRCOBJ} 
+	@mv ${NAME} ..
+
+all : $(NAME)
+
+clean :
+	rm -f ${SRCOBJ}
+
+fclean : clean
+	rm -f ${NAME}
+
+re : fclean all
